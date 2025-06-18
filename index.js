@@ -13,10 +13,10 @@ app.post('/send-email', async (req, res) => {
   }
 
   try {
-    const emailClient = new EmailClient(process.env.AZURE_EMAIL_CONNECTION_STRING);
+    const emailClient = new EmailClient("endpoint=https://cerebro-communication.uae.communication.azure.com/;accesskey=G07nfmonu31ZEUIof1hHZG5wS4g0WcD5NKUDWA7fhdzpbakI3OQiJQQJ99BFACULyCpP6MelAAAAAZCSQvZa");
 
     const message = {
-      senderAddress: process.env.SENDER_EMAIL,
+      senderAddress: "DoNotReply@570e6e76-6857-4e9a-8aa3-b53ca4deb4e3.azurecomm.net",
       content: {
         subject,
         plainText: body,
@@ -40,7 +40,7 @@ app.post('/send-email', async (req, res) => {
   }
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = 3000;
 app.listen(PORT, () => {
   console.log(`📡 Server running on http://localhost:${PORT}`);
 });
